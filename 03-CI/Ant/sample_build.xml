@@ -1,0 +1,52 @@
+﻿<project name="Grain-Bank">
+	<target name="init">
+		<echo message="Project ${ant.project.name} initialization." />
+		<echo message="Scope of this target:" />
+		<echo message="* make bin directory" />
+		<echo message="* make dist directory" />
+	</target>
+	<target name="compile">
+		<echo message="Compile ${ant.project.name} project." />
+		<echo message="Scope of this target:" />
+		<echo message="* compile project source code (located in src directory) to bin directory" />
+		<echo message="This target depends on:" />
+		<echo message="* project's initialization" />
+	</target>
+	<target name="copy">
+		<echo message="Copy static contents of ${ant.project.name} project." />
+		<echo message="Scope of this target:" />
+		<echo message="* copy directory res contents to bin directory" />
+		<echo message="This target depends on:" />
+		<echo message="* project's initialization" />
+	</target>
+	<target name="dist">
+		<echo message="Prepare the jar for distribution of ${ant.project.name} project." />
+		<echo message="Scope of this target:" />
+		<echo message="* create bank.jar file in dist directory from binary code in bin directory" />
+		<echo message="The target depends on:" />
+		<echo message="* project compilation (code must be compiled)" />
+		<echo message="* copy static contents of the project (static files must be in bin directory)" />
+		<echo message="* project's init (dist directory must exist)" />
+	</target>
+	<target name="clean">
+		<echo message="Remove project ${ant.project.name} binary files." />
+		<echo message="Scope of this target:" />
+		<echo message="* remove bin directory" />
+	</target>
+	<target name="clean-all">
+		<echo message="Delete all executable files of the ${ant.project.name} project." />
+		<echo message="Scope of this target:" />
+		<echo message="* delete dist directory" />
+		<echo message="The target depends on:" />
+		<echo message="* delete project binary files" />
+	</target>
+	<target name="run">
+		<echo message="Run ${ant.project.name} project." />
+		<echo message="Scope of this target:" />
+		<echo message="* run put.io.selenium.atm.SimpleServer class" />
+		<echo message="  from the bank.jar file," />
+		<echo message="  remember to provide the path to the required libraries" />
+		<echo message="The target depends on:" />
+		<echo message="* Prepare the jar file" />
+	</target>
+</project>
