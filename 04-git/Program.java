@@ -4,6 +4,7 @@ public class Main {
 
 
   public static void main(String[] args) {
+  System.out.println("Hi there!");
     Main myObj = new Main();
     
     System.out.println(myObj.x);
