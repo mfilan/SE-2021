@@ -59,9 +59,27 @@ public class AccountsPageObjectAT {
 
     @Test
     public void successfulUserRegistration() throws Exception {
-        //TODO
-//        mainMenu.click
-//
+        driver.get("http://localhost:8080/accounts/controller?action=db_reset");
+        driver.get("http://localhost:8080/accounts/controller");
+        assertEquals(driver.getCurrentUrl(), "http://localhost:8080/accounts/controller");
+        driver.findElement(By.linkText("Register")).click();
+        assertEquals("Register", driver.findElement(By.xpath("//div[@id='contentSingle']/h3")).getText());
+        assertEquals("username:", driver.findElement(By.xpath("//div[@id='contentSingle']/form/table/tbody/tr/td")).getText());
+        driver.findElement(By.name("username")).sendKeys("Test1");
+        driver.findElement(By.name("password")).sendKeys("password");
+        driver.findElement(By.name("repeat_password")).sendKeys("password");
+        driver.findElement(By.name("name")).sendKeys("John Doe");
+        driver.findElement(By.name("addressData")).sendKeys("john.doe@test.com");
+        driver.findElement(By.name("submit")).click();
+        assertEquals("Login", driver.findElement(By.xpath("//div[@id='contentSingle']/h3")).getText());
+        driver.findElement(By.name("username")).click();
+        driver.findElement(By.name("username")).clear();
+        driver.findElement(By.name("username")).sendKeys("Test1");
+        driver.findElement(By.name("password")).click();
+        driver.findElement(By.name("password")).clear();
+        driver.findElement(By.name("password")).sendKeys("password");
+        driver.findElement(By.name("submit")).click();
+        assertEquals("John Doe, john.doe@test.com", driver.findElement(By.xpath("//div[@id='container']/div[2]")).getText());
 
     }
 

@@ -30,6 +30,7 @@ public class AccountsLinearScriptAT {
     public void successfulUserRegistration() throws Exception {
         driver.get("http://localhost:8080/accounts/controller?action=db_reset");
         driver.get("http://localhost:8080/accounts/controller");
+        assertEquals(driver.getCurrentUrl(), "http://localhost:8080/accounts/controller");
         driver.findElement(By.linkText("Register")).click();
         driver.findElement(By.name("username")).clear();
         driver.findElement(By.name("username")).sendKeys("Test1");
