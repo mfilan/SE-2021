@@ -1,0 +1,8 @@
+Task 1
+	Average response time: around 4100, throughput 10.02/min 
+	Changes: Instantiation of  "customersDAO" only one time. “AverageSpendings” is called only one time, and takes "customerDAO" as an argument
+	Average response time after change: 2661, throughput 21.1/min
+Task 2
+	Average throughput for the configuration assumed by analysts: 2/s
+	Assumed throughput: 5.5/s
+	Calculation shows that 28 more printers are needed which confirms the hypothesis. We should add those printers to assure the throughput of 5.5 cards per second.
